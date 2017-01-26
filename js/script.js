@@ -5,8 +5,8 @@ console.log('herro');
 
 function createEntry(topic, def, keywords, description, use_case ){
 
-	$('#registration_pi_container').append(`
-		      <div class="row" class="reg_pi">
+	$('#glossary-container').append(`
+		      <div class="row" class="entry">
 		        
 		            <div class="col-md-2">
 		              <button id="${dev}_pi_status" type="button" class="btn btn-danger">Disconnected</button>

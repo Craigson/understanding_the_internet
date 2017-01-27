@@ -39,42 +39,148 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">A guide to understanding the internet...</a>
+          <a class="navbar-brand" href="#">100 days of 'Understanding The Internet...'</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
+            <input type="text" class="form-control" placeholder="Search..." id="searchbar">
           </form>
         </div>
       </div>
+
     </nav>
 
-        <div class="col-sm-12 col-md-12 main">
-          <h1 class="page-header">Glossary</h1>
+
+    <div class="container-fluid">
+
+        <div class="col-sm-10 col-md-10 col-md-offset-1 main">
+          <h1 class="page-header">Foreword</h1>
 
           <p class ="lead">
-            This site is inspired by the '100 days of making' class at NYU's ITP grad progam. It serves as documentation and a point of reference for my own attempt at understanding how the internet works.  Every day, for one hundred days, I'll be identifying an idea, term or topic that's fundamental to the internet, researching it, and doing my best to explain it in (mostly) my own words.  My hope is that in the process of bolstering my own understanding, and creating a glossary of sorts, it might be of use to someone else in the future.
+            This site is inspired by the '100 days of making' class at NYU's ITP grad progam. It serves as documentation and a point of reference for my own attempt at further understanding how the internet works.  Every day, for one hundred days, I'll be identifying an idea, term or topic that I've encountered along the way, researching it, and doing my best to explain it in (mostly) my own words.  My hope is that in the process of bolstering my own understanding, and creating a glossary of sorts, it might be of use to someone else in the future.
           </p>
 
+          <hr>
 
 
               <div class="row" id="glossary-container">
 
+              <!-- HTTP -->
+
                 <div id="http" class="col-md-12">
+                  <h5 class="day">Day 0</h5>
                   <h3>HTTP</h3>
                   <h4 class="definition">"Hypertext Transfer Protocol"</h4>
 
+                  <div>
+                    <p>
+                      HTTP was initiated by Tim Berners-Lee at CERN in 1989.  
+                      HTTP is a request-response application-level protocol based on a client-server model.
+                      HTTP is a TCP/IP based communication protocol that's used to deliver data (HMTL files, images, query results etc.) between computers in a standardized way.
+                      The connection defaults to TCP port 80.
+                      HTTP is both connectionless and stateless. This means that once an HTTP request is made, the client disconnects from the server and waits for a response.
+                      When the server responds, it re-establishes the connection in order to send the response. The fact that HTTP is stateless refers to the fact that
+                      the client are only aware of each other during the current request. Once it's over, they forget about each other.
+                      Any kind of data can be sent by HTTP, provided the client and server both know how to handle the data. Both client and
+                      server are required to specify the content's MIME-type.
+                      An HTTP request does exactly what it sounds like, as in it is requesting information/data from a specific server.
+                    </p>
+
+                    <p>
+                      Each request/response contains a number of important HTTP Protocol Parameters (which are located in the headers), these include:
+                      <ul>
+                        <li>HTTP Version,</li>
+                        <li>Uniform Resource Identifiers (URIs are used to identify a resource and establish a connection),</li>
+                        <li>Date/Time formats,</li>
+                        <li>Character sets (eg. US-Ascii),</li>
+                        <li>Content Encodings (this value indicates which encoding algorithm has been used to encode the content),</li>
+                        <li>Media Types (for data typing and type negotiation),</li>
+                        <li>Language Tags</li>
+                      </ul>
+                    </p>
+
+                    <p>
+                      <b>Request/Response Structure:</b><br>
+                      Every HTTP request/response has the same structure:
+                      <ul>
+                        <li>A startline</li>
+                        <li>Zero or more header fields followed by CRLF (carriage return and line feed characters)</li>
+                        <li>An empty line (indicated end of header fields)</li>
+                        <li>Optional message-body</li>
+                      </ul>
+                    </p>
+
+                    <p>
+                      <b>Start-Line:</b><br>
+                      The start-line can either be a request-line, or status-line, depending on whether it was sent from the client or the server.
+                      Both contains the HTTP version ( eg. HTTP/1.1), whereas the request-line will contain the request type (eg. GET) and the endpoint (eg. /example.html).
+                      The Status line contains a status code (eg. 200) and a status message (eg. OK).
+                      Example Request-Line: GET /example.com HTTP/1.1
+                      Example Status-Line: HTTP/1.1 200 OK
+                    </p>
+
+                    <p>
+                      <b>Headers:</b><br>
+                      Header fields provide the necessary information about the request/response, or about the data in the message body.
+                    </p>
+
+                    <p>
+                      <b>Message Body:</b><br>
+                      The message body is optional, but if it is present it carries the entity-body of the request/response.
+                      The Content-Type and Content-Length properties in the header describe the content.
+                      The message body contains the actual data. In the case of a client request, this could be form data, a file that's been uploaded etc.
+                      In the case of the server's response, it could contain a file, an image etc., but is more often that not an HTML page.
+                    </p>
+
+                    <p>
+                      <b>Request Methods:</b><br>
+                      The request method indicates the action to be performed on the resource identified
+                      by the given Request-URI.  The methods are as follows:
+                      <ul>
+                      <li><b>GET:</b> retrieves information from the server using the URI as a query string</li>
+                      <li><b>HEAD:</b> same as GET, but transfers the status line and the header only</li>
+                      <li><b>POST:</b> used to send data to server, eg. form data and files (more secure than GET)</li>
+                      <li><b>PUT:</b> replaces target resource with uploaded content</li>
+                      <li><b>DELETE:</b> removes target resource given by URI</li>
+                      <li><b>CONNECT:</b> establisheds a tunnel to the server identified by URI</li>
+                      <li><b>OPTIONS:</b> describe the communication options for the target resource, it can be used by the client to find out the HTTP methods and other options that the web server supports.</li>
+                      <li><b>TRACE:</b> Performs a message loop back test along with the path to the target resource ( mainly used for debugging during development)</li>
+                      </ul>
+                    </p>
+
+                    <p>
+                      <b>HTTP Status Codes and Messages:</b><br>
+                      Status codes are 3-digit integers that form part of the server response, indicating the success-state of the request.  The first digit describes the class of the response.
+                      1xx: Informational
+                      2xx: Success
+                      3xx: Redirection
+                      4xx: Client Error
+                      5xx: Server Error
+                    </p>
+
+                    <p>
+                      <b>Caching:</b><br>
+                      Performance across HTTP can be improved through the use of caching.  Caching helps eliminate the need to send requests, in certain cases, as well as the need for the server to send full responses (ie. using the back button in the browser and reloading a page that you've previously visited.  Certain information is cached so that it doesn't need to be requested from the server again).  Caching can be control using the Cache-Control header
+                    </p>
+
+                    <p>
+                      <b>An important note on security:</b><br>
+                      HTTP clients come into contact with a lot of personalized/private data (eg. names, locations, email addresses, passwords, encryption keys etc.). HTTP is an unsecured, unecrypted protocol, and much of this information can be 'leaked'.  For this reason, it's important to use HTTPS wherever possibly.  Not only is it encrypted, but it's also been designed to be faster!
+                    </p>
                 </div>
+
+                </div>
+
+                <hr>
+
+
 
               </div>
 
 
 
-            <!-- content goes here -->
-
-        </div>
       </div>
-    </div>
+    </div> <!-- end of container -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

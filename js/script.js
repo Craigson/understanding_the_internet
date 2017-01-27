@@ -2,6 +2,13 @@ console.log(glossary);
 
 console.log('herro');
 
+/* TODO:
+- search suggestions
+- a script that links every topic to a mention in the message body ( except in the case of 'self')
+- a popup that remembers your original place so you can click 'back'
+
+*/
+
 
 function createEntry(topic, def, keywords, description, use_case ){
 

@@ -1,4 +1,4 @@
-console.log(glossary);
+// console.log(glossary);
 
 console.log('herro');
 
@@ -9,6 +9,15 @@ console.log('herro');
 
 */
 
+var loc = $('#http');
+
+$('body').click(function() {
+    $('html, body').animate({
+        scrollTop: $("#http").offset().top - 20
+    }, 1000);
+});
+
+console.log(loc);
 
 function createEntry(topic, def, keywords, description, use_case ){
 

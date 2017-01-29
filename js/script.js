@@ -1,6 +1,7 @@
 /* TODO:
 - search suggestions
 - a popup that remembers your original place so you can click 'back'
+- Expand acronym on hover
 */
 
 // Keep track of the positions ( for scrolling ) of each of the topics

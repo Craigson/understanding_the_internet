@@ -140,6 +140,11 @@ hr {
   text-decoration: underline;
 }
 
+#ips_img{
+  max-width: 300px;
+  margin: 20px auto 20px auto;
+}
+
 /*#searchbar {
   width: 50%;
 }*/

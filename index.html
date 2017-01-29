@@ -50,6 +50,10 @@
 
     </nav>
 
+    <div id="search_results" class = "container-fluid">
+
+    </div>
+
 
     <div class="container-fluid">
 
@@ -66,25 +70,43 @@
 
               <div id="glossary-container">
 
+              <!-- TEMPLATE -->
+                <!-- 
+                <div id="http" class="col-md-12 entry">
+                  <h5 class="day"></h5>
+
+                  <h3></h3>
+                  
+                  <h4 class="definition">""</h4> 
+
+                  <div class="descripion">
+
+                  </div>
+
+                </div>
+
+                  -->
+
+
               <!-- HTTP -->
 
-                <div id="http" class="col-md-12">
-                  <h5 class="day">Day 0</h5>
+                <div id="http" class="col-md-12 entry">
+                  <h5 class="day">_0</h5>
                   <h3>HTTP</h3>
                   <h4 class="definition">"Hypertext Transfer Protocol"</h4>
 
-                      <div>
+                      <div class="description">
                         <p>
-                          HTTP was initiated by Tim Berners-Lee at CERN in 1989.  
-                          HTTP is a request-response application-level protocol based on a client-server model.
-                          HTTP is a TCP/IP based communication protocol that's used to deliver data (HMTL files, images, query results etc.) between computers in a standardized way.
+                          HTTP was initiated by Tim Berners-Lee at CERN in 1989.
+                          HTTP is a request-response application-level protocol based on the client-server model.
+                          HTTP is a TCP/IP based communication protocol that's used to deliver data (HMTL files, images, query results etc.) between computers in a standardized way.  Basically, it's responsible for transporting most of the data across the world wide web.
                           The connection defaults to TCP port 80.
                           HTTP is both connectionless and stateless. This means that once an HTTP request is made, the client disconnects from the server and waits for a response.
                           When the server responds, it re-establishes the connection in order to send the response. The fact that HTTP is stateless refers to the fact that
                           the client are only aware of each other during the current request. Once it's over, they forget about each other.
                           Any kind of data can be sent by HTTP, provided the client and server both know how to handle the data. Both client and
                           server are required to specify the content's MIME-type.
-                          An HTTP request does exactly what it sounds like, as in it is requesting information/data from a specific server.
+                          An HTTP request does exactly what it sounds like, as in it is requesting information/data from a specific server. 
                         </p>
 
                         <p>
@@ -176,9 +198,28 @@
 
                 </div><!--  end of http -->
 
-                <hr>
 
-                
+                <!-- TCP -->
+
+                <div id="tcp" class="col-md-12 entry">
+                  <h5 class="day">_1</h5>
+
+                  <h3>TCP</h3>
+                  
+                  <h4 class="definition">"Transmission Control Protocol"</h4> 
+
+                  <div class="descripion">
+                    <p>
+                      TCP is one of the main protocols belonging to the Internet Protocol Suite.  It has its origins in the early network implementation in which it was complimented by the Internet Protoco ( IP ). For this reason, the entire suite is often referred to as TCP/IP.  TCP forms part of the Transport Layer of the Internet Protocol Suite.
+                    </p>
+
+                    <p>
+                        TCP provides more reliable, ordered and error-checked delivery of a stream of octets (bytes) between applications running on hosts communicating over an IP network.  Internet applications such as the World Wide Web, e-mail, remote access, and file transfer are all dependent on TCP. HTTP.
+                    </p>
+
+                  </div>
+
+                </div> <!--  end of TCP -->
 
 
 

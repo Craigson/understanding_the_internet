@@ -1,42 +1,95 @@
-// console.log(glossary);
-
-console.log('herro');
-
 /* TODO:
 - search suggestions
-- a script that links every topic to a mention in the message body ( except in the case of 'self')
 - a popup that remembers your original place so you can click 'back'
-
 */
 
-var loc = $('#http');
+// Keep track of the positions ( for scrolling ) of each of the topics
+var topicPositions = mapScrollPositions();
 
-$('body').click(function() {
-    $('html, body').animate({
-        scrollTop: $("#http").offset().top - 20
+// link any mention of topic inside a description to the actual topic
+createContentLinks();
+
+var scrollPosition; // global variable for storing the scroll position when a link is clicked
+
+
+// add event lister for each instance of a referential term, use the event target to scroll.
+$('.clickable_link').click(function(event){
+	console.log('i clicked');
+	console.log($(event.target).text());
+
+	// store the current scroll position for going back to
+	scrollPosition = $(document).scrollTop();
+
+	console.log(scrollPosition);
+
+	$('html, body').animate({
+        scrollTop: topicPositions[$(event.target).text()]
     }, 1000);
-});
+})
 
-console.log(loc);
 
-function createEntry(topic, def, keywords, description, use_case ){
+function createContentLinks(){
 
-	$('#glossary-container').append(`
-		      <div class="row" class="entry">
-		        
-		            <div class="col-md-2">
-		              <button id="${dev}_pi_status" type="button" class="btn btn-danger">Disconnected</button>
-		            </div>
-		            <div class="col-md-2">
-		             <div id = "${dev}_ip" class = "dynamic">${ip} </div>
-		            </div>
-		            <div class="col-md-2">
-		             <div id = "${dev}_device" class = "dynamic">${dev}</div>
-		            </div>
-		            <div class="col-md-6">
-		              <div id="${dev}_pi_commit" class = "dynamic">unknown</div>
-		            </div>
-		        </div> <!-- end of row -->
-	`);
+	var glossaryContainer = document.getElementById('glossary-container');
+// loop through each of the topics to link terms in the paragraphs
+	for (var i = 0; i < glossaryContainer.children.length; i++){
 
+		var tagId = glossaryContainer.children[i].id;
+		// console.log('tag id: ' + tagId);
+
+		var referenceTopic = glossaryContainer.children[i].children[1].innerHTML;
+		// console.log("referenceTopic: " + referenceTopic);
+
+		console.log('linking content for: ' + referenceTopic);
+
+		var td;
+
+		//loop through all the other topics and check the text for references
+		for ( var j = 0; j < glossaryContainer.children.length; j++){
+
+			// dont check the topics own paragraph
+			if (i != j){
+
+				// search through the html and replace the html for the reference topic
+				// with a clickable link to the reference topic
+				
+				var topicLink = referenceTopic + "_link";
+				var div = "<span class=\"clickable_link\">" + referenceTopic + "</span>";
+
+				// replace each instance of the reference top with a clickable link using a regular expression (\b is for word boundary);
+				var regex = new RegExp("\\b"+referenceTopic+"\\b", "gim");
+				glossaryContainer.children[j].children[3].innerHTML = glossaryContainer.children[j].children[3].innerHTML.replace(regex, div);
+
+				// console.log(glossaryContainer.children[j].children[3])
+
+	   		}
+
+	   	} 
+	}
 }
+
+function mapScrollPositions(){
+
+	console.log('mapping topic positions');
+
+	var obj = {};
+
+	var glossaryContainer = document.getElementById('glossary-container');
+
+	// create an assosciative array that maps the topic to its scroll position
+	for (var i = 0; i < glossaryContainer.children.length; i++){
+
+		// get the topic name
+		var topic = glossaryContainer.children[i].children[1].innerHTML;
+		var tagId = glossaryContainer.children[i].id;
+		
+		// get the scroll position
+		var position = $("#" + tagId).offset().top-20;
+
+		obj[topic] = position;
+
+	}
+
+	return obj;
+}
+

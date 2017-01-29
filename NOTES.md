@@ -8,6 +8,8 @@ or
 <pre> $('#sometag').offset().top; </pre>
 </p>
 
+<hr>
+
 <p>
 You can force the browser to scroll to a specific position using jquery animation.
 eg. 
@@ -19,6 +21,8 @@ $('#someTag').click(function(){
 });
 </pre>
 </p>
+
+<hr>
 
 <p>
 You can extract the underlying HTML from an element when you click on it using

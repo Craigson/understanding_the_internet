@@ -1,9 +1,15 @@
 /* TODO:
 - search suggestions
-- a popup that remembers your original place so you can click 'back'
+- 
 - Expand acronym on hover
-- change mouse icon on hover
+- Data visualization showing connections
+- create a footer that shows the path you've taken || a popup that remembers your original place so you can click 'back'
+- support mixed cases for dynamic linking
+- got some regex work to do RE searching within plurals etc.
 */
+
+// hide the back button by default
+$('#back_button').hide();
 
 // Keep track of the positions ( for scrolling ) of each of the topics
 var topicPositions = mapScrollPositions();
@@ -24,11 +30,22 @@ $('.clickable_link').click(function(event){
 
 	console.log(scrollPosition);
 
+	// the back button appears when you follow a dynamic link
+	$('#back_button').show();
+
 	$('html, body').animate({
         scrollTop: topicPositions[$(event.target).text()]
     }, 1000);
 })
 
+// clicking on the back button takes you back to the position where you clicked
+// the dynamic link
+$('#back_button').click(function(event){
+	$('html, body').animate({
+        scrollTop: scrollPosition
+    }, 1000);
+    $('#back_button').hide();
+});
 
 function createContentLinks(){
 
@@ -62,7 +79,13 @@ function createContentLinks(){
 				var regex = new RegExp("\\b"+referenceTopic+"\\b", "gim");
 				glossaryContainer.children[j].children[3].innerHTML = glossaryContainer.children[j].children[3].innerHTML.replace(regex, div);
 
-				// console.log(glossaryContainer.children[j].children[3])
+				// handle the case where there used as a plural
+
+				// var pluralTopic = referenceTopic + "s";
+				// var divPlural = "<span class=\"clickable_link\">" + pluralTopic + "s</span>";
+				// var regexPlural = new RegExp("\\b" + pluralTopic + "\\b", "gim");
+				// glossaryContainer.children[j].children[3].innerHTML = glossaryContainer.children[j].children[3].innerHTML.replace(regexPlural, divPlural);
+				// // console.log(glossaryContainer.children[j].children[3])
 
 	   		}
 
@@ -87,6 +110,8 @@ function mapScrollPositions(){
 		
 		// get the scroll position
 		var position = $("#" + tagId).offset().top-20;
+
+		console.log(topic, position);
 
 		obj[topic] = position;
 

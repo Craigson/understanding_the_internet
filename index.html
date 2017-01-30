@@ -62,7 +62,7 @@
           <h1 class="page-header">Foreword</h1>
 
           <p class ="lead">
-            This site is inspired by the '100 days of making' class at NYU's ITP grad progam. It serves as documentation and a point of reference for my own attempt at further understanding how the internet works.  Every day, for one hundred days, I'll be identifying an idea, term or topic that I've encountered along the way, researching it, and doing my best to explain it in (mostly) my own words.  My hope is that in the process of bolstering my own understanding, and creating a glossary of sorts, it might be of use to someone else in the future.
+            This site is inspired by the '100 days of making' class at NYU's ITP grad progam. It serves as documentation and a point of reference for my own attempt at further understanding how the internet works.  Every day, for one hundred days, I'll be identifying an idea, term or topic that I've encountered along the way, researching it, and doing my best to explain it in (mostly) my own words.  Wikipedia serves as primary source, unless otherwise stated. My hope is that in the process of bolstering my own understanding, and creating a glossary of sorts, it might be of use to someone else in the future.
           </p>
 
           <hr>
@@ -72,12 +72,14 @@
 
               <!-- TEMPLATE -->
                 <!-- 
-                <div id="http" class="col-md-12 entry">
-                  <h5 class="day"></h5>
+                <div id="____" class="col-md-12 entry">
+                  <h5 class="day">____</h5>
 
-                  <h3></h3>
+                  <h3>____</h3>
                   
-                  <h4 class="definition">""</h4> 
+                  <h4 class="definition">""</h4>
+                    <b>Overview:</b><br>
+ 
 
                   <div class="descripion">
 
@@ -96,6 +98,7 @@
                   <h4 class="definition">"Hypertext Transfer Protocol"</h4>
 
                       <div class="description">
+                        <b>Overview:</b><br>
                         <p>
                           HTTP was initiated by Tim Berners-Lee at CERN in 1989.
                           HTTP is a request-response application-level protocol based on the client-server model.
@@ -109,8 +112,20 @@
                           An HTTP request does exactly what it sounds like, as in it is requesting information/data from a specific server. 
                         </p>
 
+                       <p>
+                          <b>Request/Response Structure:</b><br>
+                          Every HTTP request/response has the same structure:
+                          <ul>
+                            <li>A startline</li>
+                            <li>Zero or more header fields followed by CRLF (carriage return and line feed characters)</li>
+                            <li>An empty line (indicated end of header fields)</li>
+                            <li>Optional message-body</li>
+                          </ul>
+                        </p>
+
+                        <b>HTTP headers:</b><br>
                         <p>
-                          Each request/response contains a number of important HTTP Protocol Parameters (which are located in the headers), these include:
+                          Each request/response contains a number of important HTTP Protocol Parameters (which are located in the headers).  Header fields provide the necessary information about the request/response, or about the data in the message body. Header fields include information such as:
                           <ul>
                             <li>HTTP Version,</li>
                             <li>Uniform Resource Identifiers (URIs are used to identify a resource and establish a connection),</li>
@@ -123,17 +138,6 @@
                         </p>
 
                         <p>
-                          <b>Request/Response Structure:</b><br>
-                          Every HTTP request/response has the same structure:
-                          <ul>
-                            <li>A startline</li>
-                            <li>Zero or more header fields followed by CRLF (carriage return and line feed characters)</li>
-                            <li>An empty line (indicated end of header fields)</li>
-                            <li>Optional message-body</li>
-                          </ul>
-                        </p>
-
-                        <p>
                           <b>Start-Line:</b><br>
                           The start-line can either be a request-line, or status-line, depending on whether it was sent from the client or the server.
                           Both contains the HTTP version ( eg. HTTP/1.1), whereas the request-line will contain the request type (eg. GET) and the endpoint (eg. /example.html).
@@ -142,11 +146,6 @@
                           <li>Example Request-Line: <b>GET /example.com HTTP/1.1</b></li>
                           <li>Example Status-Line: <b>HTTP/1.1 200 OK</b></li>
                           </ul>
-                        </p>
-
-                        <p>
-                          <b>Headers:</b><br>
-                          Header fields provide the necessary information about the request/response, or about the data in the message body.
                         </p>
 
                         <p>
@@ -209,11 +208,15 @@
                   <h4 class="definition">"Transmission Control Protocol"</h4> 
 
                   <div class="descripion">
+                      <b>Overview:</b><br>
+
                       <p>
                           TCP is one of the main protocols belonging to the Internet Protocol Suite.  It has its origins in the early network implementation in which it was complimented by the Internet Protocol ( IP ). For this reason, the entire suite is often referred to as TCP/IP.  TCP forms part of the Transport Layer of the Internet Protocol Suite.  The Transport Layer lives below the Application Layer (containing protocols like HTTP, DHCP, DNS, FTP, SSH etc.) and above the Internet Layer.
                       </p>
                       
-       <!--                <img id="ips_img" src="images/ips.png" class="img-responsive center-block"> -->
+                      <img id="ips_img" src="images/ips.png" class="img-responsive center-block">
+                      <span style="text-align: center; display: block; margin-bottom: 20px"> Internet Protocol Suite (wikipedia) </span>
+
 
                       <p>
                           TCP provides more reliable, ordered and error-checked delivery of a stream of octets (bytes) between applications running on hosts communicating over an IP network.  Internet applications such as the World Wide Web, e-mail, remote access, SSH, and file transfer are all dependent on TCP.  TCP prioritizes reliability, as opposed to UDP which prioritizes reduced latency.
@@ -252,6 +255,10 @@
                           consumer application.
                       </p>
 
+                      <p>
+                            More to come...
+                      </p>
+
 
 
 
@@ -259,15 +266,95 @@
 
                 </div> <!--  end of TCP -->
 
+                <!-- IP -->
+
+                <div id="ip" class="col-md-12 entry">
+
+                      <h5 class="day">_2</h5>
+
+                      <h3>IP</h3>
+                      
+                      <h4 class="definition">"Internet Protocol"</h4> 
+
+                      <div class="descripion">
+
+                        <b>Overview:</b><br>
+                          <p>
+                            The IP protocol standardizes the way computers (hosts), either over the internet or any other IP network, forward or route packages based on their IP addresses.  In other words, its main responsibility is to relay datagrams across network boundaries.  Delivery from the source host to the destination host ( thus communication is host-to-host ) is possible because both IP addresses are present in the packet headers.  The protocol also defines the packet structure that encapsulates data passed down from the layers above ( eg. TCP or UDP from the Transport Layer ).  Every datagram has a header and payload, where the payload contains data passed down from a layer above (eg. a TCP segment from the Transport Layer). This method of nesting the data payload in a packet with a header is called encapsulation.
+                         </p>
+
+                         <img id="datagram_img" src="images/datagram.png" class="img-responsive center-block">
+
+                         <span style="text-align: center; display: block; margin-bottom: 20px"> UDP datagram (wikipedia) </span>
+                          
+                          <p>
+                            IPv4 ( Internet Protocol Version 4 ) is the dominant protocol on the internet, with the adoption of its successor IPv6 ( Internet Protocol Version 6 ) taking place slowly.  The slow adoption is due to a number of reason, primarily the cost of replacing the millions of devices that use IPv4 and their lack of compatibility with the new protocol.
+                          </p>
+
+                          <p>
+                            <b>Addressing and Routing:</b><br>
+                            Every host has an assosciated IP address. The address space is divided into network and subnetworks and is used to designate specific networks or routing prefixes.  All hosts perform routing, however routers are responsible for transporting packets across network boundaries. Routers communicate with one another via routing protocols. IP routing also happens in local networks. Ethernet switches use MAC addresses to perform actual routing, but also make use of protocols such as IP multicasting.
+                          </p>
+
+
+
+                      </div>
+
+                </div> <!-- end of IP -->
+
+                
+
+                <div id="encapsulation" class="col-md-12 entry">
+
+                  <h5 class="day">_3</h5>
+
+                  <h3>encapsulation</h3>
+                  
+                  <h4 class="definition">"encapsulation"</h4>
+                    
+                  <div class="descripion">
+                      <b>Networking:</b><br>
+                      <p>
+                        In a networking context, the method of nesting the data payload in a packet with a header is known as 'encapsulation'.
+                      </p>
+
+                      <p>
+                          <b>Programming:</b>
+                          In a programming context, 'encapsulation' is a feature of OOP ( object-oriented programming ) and is a mechanism whereby access to an object's components are restricted from outside access.  It can also be considered a method of combining methods/functions along with data inside a datastructure known as a 'class'.
+                      </p>
+
+                  </div>
+
+                </div> <!-- end of encapsulation -->
+
+                <div id="octet" class="col-md-12 entry">
+                  <h5 class="day">_4</h5>
+
+                  <h3>octet</h3>
+                  
+                  <h4 class="definition">"Octet"</h4>
+                    <p>
+                        An 'octet' and a 'byte' are essentially the same thing ( 8 bits of data ).  However, the term 'octet' is used exclusively within the context of networks.
+                    </p>
+ 
+
+                </div>
+
+
 
 
               </div>
+
+
+              <!-- BACK BUTTON -->
+            <div id="back_button" class="overlay center-block">BACK</div>
 
 
 
       </div>
 
     </div> <!-- end of fluid container -->
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

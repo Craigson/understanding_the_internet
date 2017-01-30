@@ -23,6 +23,7 @@ TCP is a reliable stream delivery service which guarantees that all bytes receiv
 </p>
 
 <p>
+<p>
 The TCP window prevents a fast sender from overwhelming a slow
 consumer application.
 </p>

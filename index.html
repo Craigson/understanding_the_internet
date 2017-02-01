@@ -39,25 +39,24 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">100 days of 'Understanding The Internet...'</a>
+          <a id="title" class="navbar-brand" href="#">100 days of 'Understanding The Internet...'</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search..." id="searchbar">
+            <input type="text" class="form-control" placeholder="Search..." id="searchbar" autocomplete="off" >
           </form>
         </div>
       </div>
 
     </nav>
 
-    <div id="search_results" class = "container-fluid">
-
-    </div>
 
 
     <div class="container-fluid">
 
-        <div class="col-sm-10 col-md-10 col-md-offset-1 main">
+        <div id="search_results">hello</div>
+
+        <div id="content" class="col-sm-8  col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 main">
 
           <h1 class="page-header">Foreword</h1>
 
@@ -71,15 +70,15 @@
               <div id="glossary-container">
 
               <!-- TEMPLATE -->
-                <!-- 
+                <!--
                 <div id="____" class="col-md-12 entry">
                   <h5 class="day">____</h5>
 
                   <h3>____</h3>
-                  
+
                   <h4 class="definition">""</h4>
                     <b>Overview:</b><br>
- 
+
 
                   <div class="descripion">
 
@@ -109,7 +108,7 @@
                           the client are only aware of each other during the current request. Once it's over, they forget about each other.
                           Any kind of data can be sent by HTTP, provided the client and server both know how to handle the data. Both client and
                           server are required to specify the content's MIME-type.
-                          An HTTP request does exactly what it sounds like, as in it is requesting information/data from a specific server. 
+                          An HTTP request does exactly what it sounds like, as in it is requesting information/data from a specific server.
                         </p>
 
                        <p>
@@ -204,8 +203,8 @@
                   <h5 class="day">_1</h5>
 
                   <h3>TCP</h3>
-                  
-                  <h4 class="definition">"Transmission Control Protocol"</h4> 
+
+                  <h4 class="definition">"Transmission Control Protocol"</h4>
 
                   <div class="descripion">
                       <b>Overview:</b><br>
@@ -213,7 +212,7 @@
                       <p>
                           TCP is one of the main protocols belonging to the Internet Protocol Suite.  It has its origins in the early network implementation in which it was complimented by the Internet Protocol ( IP ). For this reason, the entire suite is often referred to as TCP/IP.  TCP forms part of the Transport Layer of the Internet Protocol Suite.  The Transport Layer lives below the Application Layer (containing protocols like HTTP, DHCP, DNS, FTP, SSH etc.) and above the Internet Layer.
                       </p>
-                      
+
                       <img id="ips_img" src="images/ips.png" class="img-responsive center-block">
                       <span style="text-align: center; display: block; margin-bottom: 20px"> Internet Protocol Suite (wikipedia) </span>
 
@@ -273,8 +272,8 @@
                       <h5 class="day">_2</h5>
 
                       <h3>IP</h3>
-                      
-                      <h4 class="definition">"Internet Protocol"</h4> 
+
+                      <h4 class="definition">"Internet Protocol"</h4>
 
                       <div class="descripion">
 
@@ -283,10 +282,10 @@
                             The IP protocol standardizes the way computers (hosts), either over the internet or any other IP network, forward or route packages based on their IP addresses.  In other words, its main responsibility is to relay datagrams across network boundaries.  Delivery from the source host to the destination host ( thus communication is host-to-host ) is possible because both IP addresses are present in the packet headers.  The protocol also defines the packet structure that encapsulates data passed down from the layers above ( eg. TCP or UDP from the Transport Layer ).  Every datagram has a header and payload, where the payload contains data passed down from a layer above (eg. a TCP segment from the Transport Layer). This method of nesting the data payload in a packet with a header is called encapsulation.
                          </p>
 
-                         <img id="datagram_img" src="images/datagram.png" class="img-responsive center-block">
+                         <img id="dgram_img" src="images/dgram.png" class="img-responsive center-block">
 
                          <span style="text-align: center; display: block; margin-bottom: 20px"> UDP datagram (wikipedia) </span>
-                          
+
                           <p>
                             IPv4 ( Internet Protocol Version 4 ) is the dominant protocol on the internet, with the adoption of its successor IPv6 ( Internet Protocol Version 6 ) taking place slowly.  The slow adoption is due to a number of reason, primarily the cost of replacing the millions of devices that use IPv4 and their lack of compatibility with the new protocol.
                           </p>
@@ -302,16 +301,16 @@
 
                 </div> <!-- end of IP -->
 
-                
+                <!-- ENCAPSULATION -->
 
                 <div id="encapsulation" class="col-md-12 entry">
 
                   <h5 class="day">_3</h5>
 
                   <h3>encapsulation</h3>
-                  
+
                   <h4 class="definition">"encapsulation"</h4>
-                    
+
                   <div class="descripion">
                       <b>Networking:</b><br>
                       <p>
@@ -327,31 +326,112 @@
 
                 </div> <!-- end of encapsulation -->
 
+                <!-- OCTET -->
+
                 <div id="octet" class="col-md-12 entry">
                   <h5 class="day">_4</h5>
 
                   <h3>octet</h3>
-                  
+
                   <h4 class="definition">"Octet"</h4>
                     <p>
-                        An 'octet' and a 'byte' are essentially the same thing ( 8 bits of data ).  However, the term 'octet' is used exclusively within the context of networks.
-                    </p>
- 
+                        An 'octet' and a 'byte' are essentially the same thing ( 8 bits of data ).
+                        However, the term 'octet' is used exclusively within the context of networks.</p>
+
+                </div>  <!-- end of octet -->
+
+                <!-- UDP -->
+
+                <div id="udp" class="col-md-12 entry">
+                  <h5 class="day">_5</h5>
+
+                  <h3>UDP</h3>
+
+                  <h4 class="definition">"User Datagram Protocol"</h4>
+
+                  <div class="descripion">
+                    <b>Overview:</b><br>
+                        <p>
+                            UDP is a core member of the Internet Protocol Suite and resides in the Transport Layer. Data is transferred as datagrams to other hosts on an IP network.  UDP is a simple connectionless transmission model that makes use of checksums for validating data integrity, and port numbers for addressing different functions at the source and destination of the datagram.  Unlike TCP, UDP has no handshaking mechanism and as such, the reliability of delivery is determined by the underlying network.  Therefore, there's no guarentee of delivery, ordering or duplicate protection.  Any error checking that takes place needs to be performed in the application layer.  In applications where speed is prefferable over reliability, like streaming, where dropped packets are not the end of the world, UDP is the preferred protocol.
+                        </p>
+
+                        <p>
+                            Because it is transaction-oriented protocol, it's suitable for simple query-response protocols such as DNS ( Domain Name System ) and NTP ( Network Time Protocol ).  Datagrams allowing for modeling other protocols involved in things like IP tunneling or RPC ( Remote Procedure Call ) and NFS ( Network File System ).  Because the protocol is simple, it assists in accomplishing tasks without a full protocol stack, such as in the case of DHCP.  The fact that it's stateless makes it suitable for a large number of clients, like when streaming media, and the lack of retransmission delays makes it suitable for realtime applications like VoIP and online games. In addition, because communication is unidirectional, it's suitable for broadcasting.
+                        </p>
+
+                        <b>Packet Structure</b><br>
+                        <p>
+                        The UDP header consists of four fields, each of which is 2 bytes.  The fields are as follows:
+                        <ul>
+                        <li> <b>Source Port Number ( optional ):</b> Identifies the sender's port.</li>
+                        <li> <b>Destination Port Number:</b> Identifies the receivers's port.</li>
+                        <li><b>Length:</b> Specifes the length, in bytes, of the UDP header and payload data.  The minimum length is 8 bytes (ie. just the header ).  There is a theoretical limit of 65,535 bytes ( 8 byte header and 65,527 bytes of data ) in a UDP datagram. In reality it's slightly less due to the IP header size.
+                        </li>
+                        <li><b>Checksum ( optional ):</b> The checksum field is used for error-checking of the header and data.  It carries all zeros if unused.</li>
+                        </ul>
+                        </p>
+
+                        <p>
+                            <b>Applications:</b><br>
+                            UDP applications are designed with packet loss, duplication and ordering erros in mind.  Several vital internet applications make use of UDP such as DNS, SNMP, RIP, DHCP. Voice and video traffic is usually transferred using UDP because a slight loss in quality is preferred over delays due to packet-loss.
+                        </p>
+
+                        <p>
+                            <b>Features:</b><br>
+                            <ul>
+                                <li><b>Unidirectional:</b> It's an end-to-end connectionless protocol that transmits information in one direction, refardless of the receiver's state. </li>
+                                <li><b>Unreliable:</b> No concept of delivery acknowledgment, retransmission or timeout.</li>
+                                <li><b>Unordered:</b> Order of packet
+                                receipt can't be predicted. </li>
+                                <li><b>Lightweight:</b> No tracking of connections or ordering of messages means it's a small transport layer build on top of IP.</li>
+                                <li><b>Datagrams:</b> Packets are sent individually and only checked for errors upon receipt by the application layer. Packets have defined boundaries, meaning the read operation at the receiver socket yields the message as it was originally sent.</li>
+                                <li><b>No congenstion control:</b> The protocol has no implementation for contorlling congestion. </li>
+                                <li><b>Broadcasting:</b> Because it is connectionless, UDP can broadcast, ie. packets can be addressed to be receivable by all devices on the subnet. </li>
+
+                            </ul>
+
+
+                  </div>
+
+                </div> <!-- end of UDP -->
+
+                <!-- DATAGRAM -->
+
+                <div id="datagram" class="col-md-12 entry">
+                  <h5 class="day">_6</h5>
+                  <h3>datagram</h3>
+                  <h4 class="definition">"datagram"</h4>
+                  <div class="descripion">
+                        <p>
+                          <b>Overview:</b><br>
+                          The specification defines a datagram as <i>“A self-contained, independent entity of data carrying sufficient information to be routed from the source to the destination computer without reliance on earlier exchanges between this source and destination computer and the transporting network.”</i>
+                      </p>
+
+                      <p>
+                          In essence, a datagram is a basic transfer unit assosciated with a packet-switched network.
+                          'Datagrams' and 'packets' are ostensibly the same, however a datagram is generally a packet from an unreliable service
+                          which cannot notify the sender if it fails.  The term 'packet' can apply to any packet, reliable or not.
+                          Protocols like UDP have IP packets that can be described as datagrams. All IP packets are datagrams. However, a TCP segment can refer to an
+                          IP fragmentation of a datagram, which are then referred to as 'packets'.
+                      </p>
+
+                      <p>
+                          <b>Structure:</b><br>
+                          Every datagram has two components: the header and data payload.  The header contains information required for routing
+                          the datagram across an IP network.  Headers will include things such as source and destination addresses,
+                          whereas the payload contains the data being transported.  The process of nesting payloads with headers is called encapsulation.
+                      </p>
+
+                  </div>
 
                 </div>
 
+        </div> <!-- end of glossary container -->
 
+        <!-- BACK BUTTON -->
+      <div id="back_button" class="overlay center-block">BACK</div>
 
-
-              </div>
-
-
-              <!-- BACK BUTTON -->
-            <div id="back_button" class="overlay center-block">BACK</div>
-
-
-
-      </div>
+      </div> <!-- end of content -->
 
     </div> <!-- end of fluid container -->
 
@@ -366,6 +446,6 @@
 
     <!-- // <script src="js/glossary.js"></script> -->
     <script src="js/script.js"></script>
- 
+
   </body>
 </html>

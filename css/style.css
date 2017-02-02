@@ -190,7 +190,7 @@ img {
     padding: 20px auto 20px auto;
     width:100%;
     height: auto;
-    background-color:rgba(0, 0, 0, 0.9);
+    background-color:rgba(0, 0, 0, 0.5);
     z-index:9999;
     color:white;
 }

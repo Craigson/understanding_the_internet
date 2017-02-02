@@ -7,7 +7,7 @@
 - support mixed cases for dynamic linking || got some regex work to do RE searching within plurals etc.
 - Create a 'learning tree' by number of mentions (eg. the most pertinent topic is presented first.
 */
-
+console.log('loading');
 // hide the back button and search results bar by default
 $('#back_button').hide();
 $('#search_results').hide();
@@ -24,12 +24,22 @@ showSearchBar = false;
 // link any mention of topic inside a description to the actual topic
 createContentLinks();
 
+// account for any time the window is resized, to recalculate the position
+// for scrolling
+$(window).resize(function(){
+	console.log('resizing window');
+	topicPositions = mapScrollPositions();
+});
+
 $('#searchbar').keyup(handleChange);
 
 // function handleChange(e){
 // 	console.log( $('#searchbar').val() );
 // }
 
+function test(){
+	console.log('test');
+}
 function handleChange(e){
 
 	// show the search bar as the user types
@@ -59,7 +69,29 @@ function handleChange(e){
 		$("#search_results").hide();
 	}
 
+	var resultsContainer = document.getElementById('search_results');
+
 	console.log(showSearchBar);
+
+	var htmlString = '';
+	for (var j = 0; j < matchedTerms.length; j++){
+		// $('#matches').append(matchedTerms[j]);
+		// $('#matches').append(' | ');
+		htmlString = htmlString + matchedTerms[i];
+		htmlString = htmlString + ' | ';
+
+
+	}
+	console.log(matchedTerms);
+	// resultsContainer.children[0].innerHTML = htmlString;
+
+	// console.log($('#search_results').children[0].innerHTML);
+
+	// console.log(htmlString);
+
+}
+
+function updateSearchResults(){
 
 }
 
@@ -125,10 +157,10 @@ function createContentLinks(){
 				var regex = new RegExp("\\b"+referenceTopic+"\\b", "gim");
 				glossaryContainer.children[j].children[3].innerHTML = glossaryContainer.children[j].children[3].innerHTML.replace(regex, div);
 
-				console.log('reference topic: ' + referenceTopic);
-				console.log('section: ' + glossaryContainer.children[j].children[1].innerHTML);
-				console.log(glossaryContainer.children[j].children[3].innerHTML);
-				console.log('\n-----------------------\n');
+				// console.log('reference topic: ' + referenceTopic);
+				// console.log('section: ' + glossaryContainer.children[j].children[1].innerHTML);
+				// console.log(glossaryContainer.children[j].children[3].innerHTML);
+				// console.log('\n-----------------------\n');
 				// handle the case where there used as a plural
 
 				// var pluralTopic = referenceTopic + "s";
